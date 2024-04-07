@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Products</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        .btn {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            text-decoration: none;
+        }
+        .btn:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Products</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Description</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+            <tr>
+                <td>{{ product['Name'] }}</td>
+                <td>{{ product['Price'] }}</td>
+                <td>{{ product['Description'] }}</td>
+                <td>
+                    <form action="/add_to_cart" method="POST" style="display:inline;">
+                        <input type="hidden" name="product_id" value="{{ product['_id'] }}">
+                        <input type="hidden" name="product_name" value="{{ product['Name'] }}">
+                        <button type="submit" class="btn">Add to Cart</button>
+                    </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <form action="/order" method="GET">
+        <button type="submit" class="btn">View Orders</button>
+    </form>
+</body>
+</html>
