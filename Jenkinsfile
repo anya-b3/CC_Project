@@ -8,8 +8,7 @@ pipeline {
                           doGenerateSubmoduleConfigurations: false, extensions: [],
                           submoduleCfg: [], 
                           userRemoteConfigs: [
-                              [url: 'https://github.com/anya-b3/CC_Project.git',
-                               credentialsId: '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']
+                              [url: 'https://github.com/anya-b3/CC_Project.git']
                           ]
                 ])
             }
