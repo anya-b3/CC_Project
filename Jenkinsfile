@@ -4,56 +4,81 @@ pipeline {
     stages {
         stage('Checkout') {
             steps {
-                checkout([$class: 'GitSCM', branches: [[name: '*/dev']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[credentialsId: 'ae4f6f2b-bd6a-4930-8a82-de11b050d9a3', url: 'https://github.com/anya-b3/CC_Project.git']]])
+                checkout([$class: 'GitSCM', branches: [[name: '*/dev']], 
+                          doGenerateSubmoduleConfigurations: false, extensions: [],
+                          submoduleCfg: [], 
+                          userRemoteConfigs: [
+                              [url: 'https://github.com/anya-b3/CC_Project.git',
+                               credentialsId: 'YOUR_CREDENTIALS_ID']
+                          ]
+                ])
             }
         }
 
         stage('Build and Test') {
             steps {
+                // Add build and test steps for each service if required
                 dir('product-service') {
-                    bat 'start mvn clean package'
-                }
-                dir('inventory-service') {
-                    bat 'start mvn clean package'
+                    // Example: bat 'mvn clean package'
                 }
                 dir('order-service') {
-                    bat 'start mvn clean package'
+                    // Example: bat 'mvn clean package'
                 }
-                dir('notification-service') {
-                    bat 'start mvn clean package'
+                dir('login-service') {
+                    // Example: bat 'mvn clean package'
+                }
+                dir('mongodb') {
+                    // Example: bat 'mvn clean package'
+                }
+                dir('add_product_db') {
+                    // Example: bat 'mvn clean package'
+                }
+                dir('ui') {
+                    // Example: npm install && npm run build
+                }
+                dir('ui/login') {
+                    // Example: docker build -t your_docker_image_name .
                 }
             }
         }
 
         stage('Build Docker Images') {
             steps {
+                // Add build Docker image steps for each service if required
                 dir('product-service') {
-                    script {
-                        docker.withRegistry('https://registry.hub.docker.com','docker-registry-credentials')
-                        {
-                            bat 'docker push wubbles1012/product-service:latest'          	
-                        }
-                        docker.withRegistry('https://registry.hub.docker.com','docker-registry-credentials')
-                        {
-                            bat 'docker push wubbles1012/order-service:latest'          	
-                        }
-                        docker.withRegistry('https://registry.hub.docker.com','docker-registry-credentials')
-                        {
-                            bat 'docker push wubbles1012/flask-service:latest'          	
-                        }
-
-                    }
+                    // Example: docker.build('your_docker_image_name')
+                }
+                dir('order-service') {
+                    // Example: docker.build('your_docker_image_name')
+                }
+                dir('login-service') {
+                    // Example: docker.build('your_docker_image_name')
+                }
+                dir('mongodb') {
+                    // Example: docker.build('your_docker_image_name')
+                }
+                dir('add_product_db') {
+                    // Example: docker.build('your_docker_image_name')
+                }
+                dir('ui') {
+                    // Example: docker.build('your_docker_image_name')
                 }
             }
         }
 
         stage('Deploy to Kubernetes') {
             steps {
-                script{
-                    bat 'kubectl apply -f k8s/services/product-service/'
-                    bat 'kubectl apply -f k8s/services/order-service/'
-                    bat 'kubectl apply -f k8s/services/inventory-service/'
-                    bat 'kubectl apply -f k8s/services/notification-service/'
+                script {
+                    // Apply Kubernetes deployment and service files
+                    bat 'kubectl apply -f product-deployment.yaml'
+                    bat 'kubectl apply -f order-deployment.yaml'
+                    bat 'kubectl apply -f loginui-deployment.yaml'
+                    bat 'kubectl apply -f mongodb-deployment.yaml'
+                    bat 'kubectl apply -f add_product_db'
+                    bat 'kubectl apply -f ui/flask-deployment.yaml'
+                    bat 'kubectl apply -f ui/flask-service.yaml'
+                    bat 'kubectl apply -f ui/login/Dockerfile'
+                    // Add more apply commands if needed
                 }
             }
         }
