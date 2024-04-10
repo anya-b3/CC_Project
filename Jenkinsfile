@@ -1,7 +1,7 @@
 pipeline {
     agent {
         kubernetes {
-            cloud 'Kubernetes'
+            cloud 'kubernetes'
             label 'my-k8s-agent'
         }
     }
