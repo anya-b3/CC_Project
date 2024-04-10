@@ -46,6 +46,7 @@ pipeline {
                 // Add build Docker image steps for each service if required
                 dir('product-service') {
                     // Example: docker.build('your_docker_image_name')
+                    docker.build('wubbles1012/product-service:latest')
                 }
                 dir('order-service') {
                     // Example: docker.build('your_docker_image_name')
@@ -69,14 +70,14 @@ pipeline {
             steps {
                 script {
                     // Apply Kubernetes deployment and service files
-                    sh 'start /b /wait /var/jenkins_home/kubectl apply -f product-deployment.yaml'
-                    sh 'start /b /wait kubectl apply -f order-deployment.yaml'
-                    sh 'start /b /wait kubectl apply -f loginui-deployment.yaml'
-                    sh 'start /b /wait kubectl apply -f mongodb-deployment.yaml'
-                    sh 'start /b /wait kubectl apply -f add_product_db'
-                    sh 'start /b /wait kubectl apply -f ui/flask-deployment.yaml'
-                    sh 'start /b /wait kubectl apply -f ui/flask-service.yaml'
-                    sh 'start /b /wait kubectl apply -f ui/login/Dockerfile'
+                    sh '/var/jenkins_home/kubectl apply -f product-deployment.yaml'
+                    sh 'kubectl apply -f order-deployment.yaml'
+                    sh 'kubectl apply -f loginui-deployment.yaml'
+                    sh 'kubectl apply -f mongodb-deployment.yaml'
+                    sh 'kubectl apply -f add_product_db'
+                    sh 'kubectl apply -f ui/flask-deployment.yaml'
+                    sh 'kubectl apply -f ui/flask-service.yaml'
+                    sh 'kubectl apply -f ui/login/Dockerfile'
                     // Add more apply commands if needed
                 }
             }
