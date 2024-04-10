@@ -8,7 +8,7 @@ pipeline {
                           doGenerateSubmoduleConfigurations: false, extensions: [],
                           submoduleCfg: [], 
                           userRemoteConfigs: [
-                              [url: 'git@github.com:anya-b3/CC_Project.git']
+                              [url: 'https://github.com/anya-b3/CC_Project.git']
                           ]
                 ])
             }
