@@ -1,11 +1,4 @@
 pipeline {
-    agent {
-        kubernetes {
-            cloud 'kubernetes'
-            label 'my-k8s-agent'
-        }
-    }
-
     stages {
         stage('Checkout') {
             steps {
