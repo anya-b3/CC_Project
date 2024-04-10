@@ -69,14 +69,14 @@ pipeline {
             steps {
                 script {
                     // Apply Kubernetes deployment and service files
-                    sh '/var/jenkins_home/kubectl apply -f product-deployment.yaml'
-                    sh 'kubectl apply -f order-deployment.yaml'
-                    sh 'kubectl apply -f loginui-deployment.yaml'
-                    sh 'kubectl apply -f mongodb-deployment.yaml'
-                    sh 'kubectl apply -f add_product_db'
-                    sh 'kubectl apply -f ui/flask-deployment.yaml'
-                    sh 'kubectl apply -f ui/flask-service.yaml'
-                    sh 'kubectl apply -f ui/login/Dockerfile'
+                    sh 'start /b /wait /var/jenkins_home/kubectl apply -f product-deployment.yaml'
+                    sh 'start /b /wait kubectl apply -f order-deployment.yaml'
+                    sh 'start /b /wait kubectl apply -f loginui-deployment.yaml'
+                    sh 'start /b /wait kubectl apply -f mongodb-deployment.yaml'
+                    sh 'start /b /wait kubectl apply -f add_product_db'
+                    sh 'start /b /wait kubectl apply -f ui/flask-deployment.yaml'
+                    sh 'start /b /wait kubectl apply -f ui/flask-service.yaml'
+                    sh 'start /b /wait kubectl apply -f ui/login/Dockerfile'
                     // Add more apply commands if needed
                 }
             }
