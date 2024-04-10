@@ -45,8 +45,10 @@ pipeline {
             steps {
                 // Add build Docker image steps for each service if required
                 dir('product-service') {
-                    // Example: docker.build('your_docker_image_name')
-                    docker.build('wubbles1012/product-service:latest')
+                    script {
+                        // Example: docker.build('your_docker_image_name')
+                        docker.build('wubbles1012/product-service:latest')
+                    }
                 }
                 dir('order-service') {
                     // Example: docker.build('your_docker_image_name')
