@@ -73,14 +73,14 @@ pipeline {
             steps {
                 script {
                     // Apply Kubernetes deployment and service files
-                    sh 'kubectl apply -f product-deployment.yaml'
-                    sh 'kubectl apply -f order-deployment.yaml'
-                    sh 'kubectl apply -f loginui-deployment.yaml'
-                    sh 'kubectl apply -f mongodb-deployment.yaml'
-                    sh 'kubectl apply -f add_product_db'
-                    sh 'kubectl apply -f ui/flask-deployment.yaml'
-                    sh 'kubectl apply -f ui/flask-service.yaml'
-                    sh 'kubectl apply -f ui/login/Dockerfile'
+                    bat 'kubectl apply -f product-deployment.yaml'
+                    bat 'kubectl apply -f order-deployment.yaml'
+                    bat 'kubectl apply -f loginui-deployment.yaml'
+                    bat 'kubectl apply -f mongodb-deployment.yaml'
+                    bat 'kubectl apply -f add_product_db'
+                    bat 'kubectl apply -f ui/flask-deployment.yaml'
+                    bat 'kubectl apply -f ui/flask-service.yaml'
+                    bat 'kubectl apply -f ui/login/Dockerfile'
                     // Add more apply commands if needed
                 }
             }
