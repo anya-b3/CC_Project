@@ -1,5 +1,10 @@
 pipeline {
-    agent any
+    agent {
+        kubernetes {
+            cloud 'Kubernetes'
+            label 'my-k8s-agent'
+        }
+    }
 
     stages {
         stage('Checkout') {
@@ -75,7 +80,7 @@ pipeline {
             steps {
                 script {
                     // Apply Kubernetes deployment and service files
-                    sh '/var/jenkins_home/kubectl apply -f product-deployment.yaml'
+                    sh 'kubectl apply -f product-deployment.yaml'
                     sh 'kubectl apply -f order-deployment.yaml'
                     sh 'kubectl apply -f loginui-deployment.yaml'
                     sh 'kubectl apply -f mongodb-deployment.yaml'
