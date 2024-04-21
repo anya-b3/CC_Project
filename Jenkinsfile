@@ -73,17 +73,23 @@ pipeline {
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    // Apply Kubernetes deployment and service files
-                    bat 'kubectl get pods'
-                    bat 'kubectl apply -f product-deployment.yaml'
-                    bat 'kubectl apply -f order-deployment.yaml'
-                    bat 'kubectl apply -f loginui-deployment.yaml'
-                    bat 'kubectl apply -f mongodb-deployment.yaml'
-                    bat 'kubectl apply -f add_product_db'
-                    bat 'kubectl apply -f ui/flask-deployment.yaml'
-                    bat 'kubectl apply -f ui/flask-service.yaml'
-                    bat 'kubectl apply -f ui/login/Dockerfile'
-                    // Add more apply commands if needed
+                    try{
+                        
+                        // Apply Kubernetes deployment and service files
+                        bat 'kubectl get pods'
+                        bat 'kubectl apply -f product-deployment.yaml'
+                        bat 'kubectl apply -f order-deployment.yaml'
+                        bat 'kubectl apply -f loginui-deployment.yaml'
+                        bat 'kubectl apply -f mongodb-deployment.yaml'
+                        bat 'kubectl apply -f add_product_db'
+                        bat 'kubectl apply -f ui/flask-deployment.yaml'
+                        bat 'kubectl apply -f ui/flask-service.yaml'
+                        bat 'kubectl apply -f ui/login/Dockerfile'
+                        // Add more apply commands if needed
+                    }catch(Exception e) {
+                        echo "Error deploying to Kubernetes: ${e.message}"
+                        // Additional error handling if needed
+                    }
                 }
             }
         }
