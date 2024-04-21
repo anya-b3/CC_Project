@@ -74,6 +74,7 @@ pipeline {
             steps {
                 script {
                     // Apply Kubernetes deployment and service files
+                    bat 'kubectl get pods'
                     bat 'kubectl apply -f product-deployment.yaml'
                     bat 'kubectl apply -f order-deployment.yaml'
                     bat 'kubectl apply -f loginui-deployment.yaml'
@@ -86,5 +87,8 @@ pipeline {
                 }
             }
         }
+      stage('Workspace Cleanup') {
+            steps {
+                deleteDir()  // Cleans up the workspace at the end of the pipeline  
     }
 }
