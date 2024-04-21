@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        KUBECONFIG = credentials('kubernetes')  
+        KUBECONFIG = credentials('minikube_jenkin_2')  
     }
     stages {
         stage('Checkout') {
