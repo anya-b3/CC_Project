@@ -57,7 +57,7 @@ pipeline {
                 }
                 dir('order-service') {
                      script{
-                        docker.build('wubbles1012/product-service:latest')
+                        docker.build('wubbles1012/order-service:latest')
                         docker.withRegistry('https://index.docker.io/v1/', 'docker_name_pass') {
                             // Tag the Docker image with the Docker Hub repository name
                             docker.image('wubbles1012/order-service:latest').push()
