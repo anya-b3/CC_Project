@@ -63,6 +63,7 @@ pipeline {
                             docker.image('wubbles1012/order-service:latest').push()
                         }
                 }
+                }
                  dir('login-service') {
                     script{
                         docker.build('wubbles1012/login-service:latest')
@@ -92,6 +93,7 @@ pipeline {
                 }
             }
         }
+        
 
         stage('Deploy to Kubernetes') {
             steps {
