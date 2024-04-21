@@ -74,11 +74,10 @@ pipeline {
             steps {
                 script {
                     try{
-                        // kubernetesDeploy(configs: "product-deployment.yaml", 
-                                         "product-service.yaml")
+                        kubernetesDeploy(configs: "product-deployment.yaml", "product-service.yaml")
                         // Apply Kubernetes deployment and service files
                         // bat 'kubectl get pods'
-                        bat 'kubectl apply -f product-deployment.yaml'
+                        // bat 'kubectl apply -f product-deployment.yaml'
                         // bat 'kubectl apply -f order-deployment.yaml'
                         // bat 'kubectl apply -f loginui-deployment.yaml'
                         // bat 'kubectl apply -f mongodb-deployment.yaml'
