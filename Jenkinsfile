@@ -56,7 +56,12 @@ pipeline {
                     }
                 }
                 dir('order-service') {
-                    // Example: docker.build('your_docker_image_name')
+                     script{
+                        docker.build('wubbles1012/product-service:latest')
+                        docker.withRegistry('https://index.docker.io/v1/', 'docker_name_pass') {
+                            // Tag the Docker image with the Docker Hub repository name
+                            docker.image('wubbles1012/order-service:latest').push()
+                        }
                 }
                 dir('login-service') {
                     // Example: docker.build('your_docker_image_name')
