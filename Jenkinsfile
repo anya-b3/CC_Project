@@ -85,7 +85,7 @@ pipeline {
                     bat 'kubectl apply -f loginui-service.yaml'
                     bat 'kubectl apply -f mongodb-deployment.yaml'
                     bat 'kubectl apply -f flask-deployment.yaml'
-                    bat 'kubectl apply -f flask-service.yaml
+                    bat 'kubectl apply -f flask-service.yaml'
                     // Add more apply commands if needed
                 }
             }
