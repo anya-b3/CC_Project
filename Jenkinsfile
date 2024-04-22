@@ -108,7 +108,7 @@ pipeline {
                     bat 'kubectl apply -f mongodb-deployment.yaml'
                     bat 'kubectl apply -f flask-deployment.yaml'
                     bat 'kubectl apply -f flask-service.yaml'
-                    bat 'minikube tunnel'
+                    // bat 'minikube tunnel'
                     // Add more apply commands if needed
                 }
             }
