@@ -64,7 +64,7 @@ pipeline {
                         }
                 }
                 }
-                 dir('login-service') {
+                 dir('login_service') {
                     script{
                         docker.build('wubbles1012/login-service:latest')
                         docker.withRegistry('https://index.docker.io/v1/', 'docker_name_pass') {
