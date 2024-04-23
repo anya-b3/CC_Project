@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: flask-app
-        image: wubbles1012/login-service:2.0.7
+        image: wubbles1012/login-service:latest
         ports:
         - containerPort: 5000
         env:
