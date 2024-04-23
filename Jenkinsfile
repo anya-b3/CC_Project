@@ -105,6 +105,7 @@ pipeline {
                     // bat 'kubectl delete -f mongodb-deployment.yaml'
                     // bat 'kubectl delete -f flask-deployment.yaml'
                     // bat 'kubectl delete -f flask-service.yaml'
+                    bat 'kubectl get pods'
                 }
             }
         }
