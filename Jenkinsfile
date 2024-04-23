@@ -109,8 +109,10 @@ pipeline {
                     bat 'kubectl apply -f flask-deployment.yaml'
                     bat 'kubectl apply -f flask-service.yaml'
                     
+                    bat 'kubectl get pods' 
+                    
                     // Start minikube tunnel
-                    bat 'start minikube tunnel'
+                    // bat 'start minikube tunnel'
                     // Add more apply commands if needed
                 }
             }
