@@ -103,7 +103,7 @@ pipeline {
                         bat 'kubectl delete -f order-service.yaml'
                         bat 'kubectl delete -f loginui-deployment.yaml'
                         bat 'kubectl delete -f loginui-service.yaml'
-                        bat 'kubectl delete -f mongodb-deployment.yaml'
+                        // bat 'kubectl delete -f mongodb-deployment.yaml'
                         bat 'kubectl delete -f flask-deployment.yaml'
                         bat 'kubectl delete -f flask-service.yaml'
                         bat 'kubectl get pods'
@@ -123,7 +123,7 @@ pipeline {
                     bat 'kubectl apply -f order-service.yaml'
                     bat 'kubectl apply -f loginui-deployment.yaml'
                     bat 'kubectl apply -f loginui-service.yaml'
-                    bat 'kubectl apply -f mongodb-deployment.yaml'
+                    // bat 'kubectl apply -f mongodb-deployment.yaml'
                     bat 'kubectl apply -f flask-deployment.yaml'
                     bat 'kubectl apply -f flask-service.yaml'
                     
