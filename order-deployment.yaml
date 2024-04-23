@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: order-app
-        image: wubbles1012/order-service:1.0.3
+        image: wubbles1012/order-service:latest
         ports:
         - containerPort: 5000
         env:
