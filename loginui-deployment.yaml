@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: loginui-app
-        image: wubbles1012/loginui-service:1.0.1
+        image: wubbles1012/loginui-service:latest
         ports:
         - containerPort: 5000
         env:
