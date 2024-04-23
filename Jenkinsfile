@@ -46,51 +46,51 @@ pipeline {
         stage('Build Docker Images') {
             steps {
                 // Add build Docker image steps for each service if required
-                dir('product-service') {
-                    script{
-                        docker.build('wubbles1012/product-service:latest')
-                        docker.withRegistry('https://index.docker.io/v1/', 'docker_name_pass') {
-                            // Tag the Docker image with the Docker Hub repository name
-                            docker.image('wubbles1012/product-service:latest').push()
-                        }
-                    }
-                }
-                dir('order-service') {
-                     script{
-                        docker.build('wubbles1012/order-service:latest')
-                        docker.withRegistry('https://index.docker.io/v1/', 'docker_name_pass') {
-                            // Tag the Docker image with the Docker Hub repository name
-                            docker.image('wubbles1012/order-service:latest').push()
-                        }
-                }
-                }
-                 dir('login_service') {
-                    script{
-                        docker.build('wubbles1012/login-service:latest')
-                        docker.withRegistry('https://index.docker.io/v1/', 'docker_name_pass') {
-                            // Tag the Docker image with the Docker Hub repository name
-                            docker.image('wubbles1012/login-service:latest').push()
-                        }
-                    }
-                }
-                dir('ui/login') {
-                    script{
-                        docker.build('wubbles1012/loginui-service:latest')
-                        docker.withRegistry('https://index.docker.io/v1/', 'docker_name_pass') {
-                            // Tag the Docker image with the Docker Hub repository name
-                            docker.image('wubbles1012/loginui-service:latest').push()
-                        }
-                    }
-                }
-                dir('mongodb') {
-                    // Example: docker.build('your_docker_image_name')
-                }
-                dir('add_product_db') {
-                    // Example: docker.build('your_docker_image_name')
-                }
-                dir('ui') {
-                    // Example: docker.build('your_docker_image_name')
-                }
+            //     dir('product-service') {
+            //         script{
+            //             docker.build('wubbles1012/product-service:latest')
+            //             docker.withRegistry('https://index.docker.io/v1/', 'docker_name_pass') {
+            //                 // Tag the Docker image with the Docker Hub repository name
+            //                 docker.image('wubbles1012/product-service:latest').push()
+            //             }
+            //         }
+            //     }
+            //     dir('order-service') {
+            //          script{
+            //             docker.build('wubbles1012/order-service:latest')
+            //             docker.withRegistry('https://index.docker.io/v1/', 'docker_name_pass') {
+            //                 // Tag the Docker image with the Docker Hub repository name
+            //                 docker.image('wubbles1012/order-service:latest').push()
+            //             }
+            //     }
+            //     }
+            //      dir('login_service') {
+            //         script{
+            //             docker.build('wubbles1012/login-service:latest')
+            //             docker.withRegistry('https://index.docker.io/v1/', 'docker_name_pass') {
+            //                 // Tag the Docker image with the Docker Hub repository name
+            //                 docker.image('wubbles1012/login-service:latest').push()
+            //             }
+            //         }
+            //     }
+            //     dir('ui/login') {
+            //         script{
+            //             docker.build('wubbles1012/loginui-service:latest')
+            //             docker.withRegistry('https://index.docker.io/v1/', 'docker_name_pass') {
+            //                 // Tag the Docker image with the Docker Hub repository name
+            //                 docker.image('wubbles1012/loginui-service:latest').push()
+            //             }
+            //         }
+            //     }
+            //     dir('mongodb') {
+            //         // Example: docker.build('your_docker_image_name')
+            //     }
+            //     dir('add_product_db') {
+            //         // Example: docker.build('your_docker_image_name')
+            //     }
+            //     dir('ui') {
+            //         // Example: docker.build('your_docker_image_name')
+            //     }
             }
         }
         
