@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: product-app
-        image: wubbles1012/product-service:2.0.8
+        image: wubbles1012/product-service:latest
         ports:
         - containerPort: 5000
         env:
