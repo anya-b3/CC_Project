@@ -92,6 +92,7 @@ pipeline {
             //         // Example: docker.build('your_docker_image_name')
             //     }
             }
+        }
         stage('Clean Up Kubernetes') {
             steps {
                 script {
@@ -141,4 +142,5 @@ pipeline {
             }
         }
     }
+}
 }
