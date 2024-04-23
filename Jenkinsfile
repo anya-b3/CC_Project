@@ -45,7 +45,7 @@ pipeline {
 
         stage('Build Docker Images') {
             steps {
-                Add build Docker image steps for each service if required
+                // Add build Docker image steps for each service if required
                 dir('product-service') {
                     // script{
                     //     // docker.build('wubbles1012/product-service:latest')
