@@ -92,26 +92,26 @@ pipeline {
             //         // Example: docker.build('your_docker_image_name')
             //     }
             }
-        // stage('Clean Up Kubernetes') {
-        //     steps {
-        //         script {
-        //             // Delete resources in Kubernetes
-        //             bat 'kubectl delete -f product-deployment.yaml'
-        //             bat 'kubectl delete -f product-service.yaml'
-        //             bat 'kubectl delete -f order-deployment.yaml'
-        //             bat 'kubectl delete -f order-service.yaml'
-        //             bat 'kubectl delete -f loginui-deployment.yaml'
-        //             bat 'kubectl delete -f loginui-service.yaml'
-        //             bat 'kubectl delete -f mongodb-deployment.yaml'
-        //             bat 'kubectl delete -f flask-deployment.yaml'
-        //             bat 'kubectl delete -f flask-service.yaml'
-        //         }
-        //     }
-        // }
+        stage('Clean Up Kubernetes') {
+            steps {
+                script {
+                    // Delete resources in Kubernetes
+                    // bat 'kubectl delete -f product-deployment.yaml'
+                    // bat 'kubectl delete -f product-service.yaml'
+                    // bat 'kubectl delete -f order-deployment.yaml'
+                    // bat 'kubectl delete -f order-service.yaml'
+                    // bat 'kubectl delete -f loginui-deployment.yaml'
+                    // bat 'kubectl delete -f loginui-service.yaml'
+                    // bat 'kubectl delete -f mongodb-deployment.yaml'
+                    // bat 'kubectl delete -f flask-deployment.yaml'
+                    // bat 'kubectl delete -f flask-service.yaml'
+                }
+            }
+        }
         stage('Deploy to Kubernetes') {
             steps {
                 script {
-                    Apply Kubernetes deployment and service files
+                    // Apply Kubernetes deployment and service files
                     bat 'kubectl apply -f product-deployment.yaml'
                     bat 'kubectl apply -f product-service.yaml'
                     bat 'kubectl apply -f order-deployment.yaml'
