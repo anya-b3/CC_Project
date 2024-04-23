@@ -99,15 +99,15 @@ pipeline {
             steps {
                 script {
                     // Apply Kubernetes deployment and service files
-                    bat 'kubectl apply -f product-deployment.yaml'
-                    bat 'kubectl apply -f product-service.yaml'
-                    bat 'kubectl apply -f order-deployment.yaml'
-                    bat 'kubectl apply -f order-service.yaml'
-                    bat 'kubectl apply -f loginui-deployment.yaml'
-                    bat 'kubectl apply -f loginui-service.yaml'
-                    bat 'kubectl apply -f mongodb-deployment.yaml'
-                    bat 'kubectl apply -f flask-deployment.yaml'
-                    bat 'kubectl apply -f flask-service.yaml'
+                    // bat 'kubectl apply -f product-deployment.yaml'
+                    // bat 'kubectl apply -f product-service.yaml'
+                    // bat 'kubectl apply -f order-deployment.yaml'
+                    // bat 'kubectl apply -f order-service.yaml'
+                    // bat 'kubectl apply -f loginui-deployment.yaml'
+                    // bat 'kubectl apply -f loginui-service.yaml'
+                    // bat 'kubectl apply -f mongodb-deployment.yaml'
+                    // bat 'kubectl apply -f flask-deployment.yaml'
+                    // bat 'kubectl apply -f flask-service.yaml'
                     
                     bat 'kubectl get pods' 
                     
